@@ -1,6 +1,6 @@
 # notebook-ai
 
-Projeto para desenhar e evoluir uma skill capaz de revisar ou criar notebooks Scala para Databricks com foco em boas praticas, clareza, reprodutibilidade e um padrao de qualidade predefinido.
+Projeto para desenhar e evoluir uma skill capaz de revisar notebooks Scala para Databricks com foco em boas praticas, clareza, reprodutibilidade e um padrao de qualidade predefinido.
 
 O objetivo nao e apenas "melhorar codigo". A meta e sempre chegar a uma versao final do notebook que esteja:
 
@@ -14,19 +14,13 @@ Este repositorio funciona como base de referencia, teste e iteracao para a skill
 
 ## Objetivo
 
-A skill deve ser capaz de atuar em dois cenarios:
+A skill deve ser capaz de atuar em um cenario principal:
 
-1. **Revisar um notebook Scala existente**
+1. **Revisar e padronizar um notebook Scala existente**
    - ler um notebook em `inputs/`
    - diagnosticar problemas de estrutura, legibilidade e qualidade
    - propor ajustes passo a passo
    - gerar uma versao final revisada em `outputs/`
-
-2. **Criar um notebook Scala novo**
-   - partir de um objetivo de negocio informado pelo usuario
-   - construir o notebook por etapas
-   - validar estrutura, boas praticas e checks minimos
-   - salvar a versao final em `outputs/`
 
 ## Principio central
 
@@ -44,10 +38,15 @@ Ela deve trabalhar passo a passo com o usuario:
 
 ```text
 .
+├── .cursor/skills/
+│   └── databricks-scala-notebook/
+│       ├── SKILL.md
+│       ├── reference.md
+│       └── examples.md
 ├── inputs/
 │   └── notebooks Spark Scala existentes usados como teste
 ├── outputs/
-│   └── notebooks revisados ou criados pela skill
+│   └── notebooks revisados pela skill
 ├── templates/
 │   └── referencias de boas praticas e aprendizados
 └── README.md
@@ -56,8 +55,8 @@ Ela deve trabalhar passo a passo com o usuario:
 ### Pastas
 
 - `inputs/`: contem notebooks existentes que servem como casos de teste para a skill. Hoje ja existe `Final CC Default Rate.scala`.
-- `templates/`: contem o material de referencia que define o padrao esperado. Neste repositorio, os principais insumos sao `boas_praticas.txt` e `Learnings Databricks.pdf`.
-- `outputs/`: destino das versoes finais produzidas pela skill, tanto para revisao quanto para criacao de novos notebooks.
+- `templates/`: contem o material de referencia que define o padrao esperado. Neste repositorio, os principais insumos sao `boas_praticas.txt`, `01. RAM Analysis by Global Holdout.scala`, `Academia AI.md` e `Repo CLO.scala`.
+- `outputs/`: destino das versoes finais produzidas pela skill apos a revisao e padronizacao dos notebooks.
 
 ## Referencias utilizadas
 
@@ -94,24 +93,14 @@ Quando o usuario pedir para revisar um notebook existente, a skill deve:
 6. preservar ou explicitar premissas importantes
 7. gerar uma versao final em `outputs/`
 
-### Fluxo de criacao
-
-Quando o usuario pedir um notebook novo, a skill deve:
-
-1. coletar o briefing do usuario
-2. propor a estrutura inicial do notebook
-3. validar a direcao antes de escrever a versao completa
-4. construir o notebook por blocos
-5. adicionar sanity checks e orientacoes de uso
-6. gerar a versao final em `outputs/`
-
 ## Interacao minima com o usuario
 
 A skill deve fazer perguntas suficientes para evitar uma resposta generica ou desalinhada. O minimo esperado e confirmar:
 
-- se o pedido e de **revisao** ou **criacao**
+- qual notebook sera revisado
 - qual e o objetivo de negocio do notebook
 - quais tabelas, fontes ou datasets entram no fluxo
+- se os datasets ja estao confirmados ou se a skill deve pesquisar e validar
 - qual periodo, filtro ou recorte importa
 - se existe numero oficial, dashboard ou tabela de referencia para reconciliacao
 - quais restricoes nao podem ser quebradas
@@ -190,10 +179,12 @@ Independentemente da localizacao, este repositorio ja define:
 
 ## Proximo passo recomendado
 
-Depois deste README, o proximo passo natural e transformar essa visao em uma especificacao objetiva da skill, cobrindo:
+O repositorio ja contem a skill em `.cursor/skills/databricks-scala-notebook/`.
 
-1. nome e descricao da skill
-2. gatilhos de uso
-3. perguntas obrigatorias ao usuario
-4. checklist de revisao/criacao
-5. formato esperado dos artefatos em `outputs/`
+O proximo passo natural e validar esse fluxo com notebooks reais de `inputs/`, cobrindo:
+
+1. leitura do notebook original
+2. checkpoints obrigatorios com o usuario
+3. revisao estrutural e de sanity checks
+4. geracao da versao final em `outputs/`
+5. refinamento da skill a partir dos casos de teste

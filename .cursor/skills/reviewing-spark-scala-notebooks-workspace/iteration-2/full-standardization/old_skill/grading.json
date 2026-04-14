@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+      "passed": true,
+      "evidence": "Found all README intro markers in notebook intro."
+    },
+    {
+      "text": "Notebook contains required numbered sections from Imports through Display",
+      "passed": true,
+      "evidence": "Found all required numbered sections from 1 through 8."
+    },
+    {
+      "text": "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+      "passed": true,
+      "evidence": "Validation section mentions the no-join case, required columns, and duplicate or PR-grain checks."
+    },
+    {
+      "text": "Notebook preserves the expected Delta output table names from the source notebook",
+      "passed": true,
+      "evidence": "All expected Delta output table names are present."
+    },
+    {
+      "text": "Review notes use PT-BR checkpoint prompts, include the confirmation pattern, and include dataset rationale",
+      "passed": false,
+      "evidence": "Review notes are missing one of: PT-BR checkpoint prompts, the expected confirmation pattern, or dataset rationale."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": 0,
+    "output_chars": 21956,
+    "transcript_chars": 0
+  },
+  "timing": {
+    "executor_duration_seconds": 0.0,
+    "grader_duration_seconds": 0.0,
+    "total_duration_seconds": 0.0
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  }
+}

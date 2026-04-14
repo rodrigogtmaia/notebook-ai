@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "validation-first-review",
+  "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala` with focus on data correctness risks. Keep the business objective as monthly reporting of AI-assisted PR activity. The dataset list is already confirmed and no research is required. Preserve logic. Explicitly validate duplicate PR counting, required columns, date filter scope, repo filters, and document that there are no joins in this notebook instead of skipping join validation entirely. Save the final notebook under `outputs/ai_pr_monitor_itaipu_validation_first.scala` and save `review-notes.md` with the PT-BR checkpoint assumptions you used.",
+  "assertions": [
+    "Validation section explicitly states there are no joins in this pipeline",
+    "Validation checks required columns and PR-grain duplicates",
+    "Validation checks date filter scope and repo filter behavior",
+    "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+    "Notebook preserves the expected Delta output table names from the source notebook"
+  ]
+}

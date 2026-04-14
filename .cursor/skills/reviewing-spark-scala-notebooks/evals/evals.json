@@ -1,0 +1,51 @@
+{
+  "skill_name": "reviewing-spark-scala-notebooks",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala` and rewrite it into a final notebook saved under `outputs/ai_pr_monitor_itaipu_reviewed.scala`. The business objective is monthly OKR reporting for AI-assisted PRs across `itaipu` and `cross-segment-ai-tools`. The dataset is already confirmed: `etl.ist__dataset.pull_request_events` is the base dataset and there are no additional enrichment datasets. Preserve business logic and output tables. You may reorganize structure and naming for readability. Priority: result reliability plus repository standard. The notebook must be in English. Also save `review-notes.md` using the skill's default user-checkpoint language and structure. In that file, include the checkpoint questions you would ask before editing, the confirmation format you would use, the checkpoint assumptions used for this benchmark, dataset rationale, key validations added, and remaining risks.",
+      "expected_output": "A reviewed notebook with the required section order, README-style intro, meaningful cell names, and validation for counts, filters, required columns, and the no-join scenario.",
+      "expectations": [
+        "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+        "Notebook contains required numbered sections from Imports through Display",
+        "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+        "Notebook preserves the expected Delta output table names from the source notebook",
+        "Review notes use PT-BR checkpoint prompts, include the confirmation pattern, and include dataset rationale"
+      ],
+      "files": [
+        "inputs/ai_pr_monitor_itaipu.scala"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala` with focus on data correctness risks. Keep the business objective as monthly reporting of AI-assisted PR activity. The dataset list is already confirmed and no research is required. Preserve logic. Explicitly validate duplicate PR counting, required columns, date filter scope, repo filters, and document that there are no joins in this notebook instead of skipping join validation entirely. Save the final notebook under `outputs/ai_pr_monitor_itaipu_validation_first.scala`. Also save `review-notes.md` using the skill's default user-checkpoint language and structure, including the checkpoint questions you would ask before editing, the confirmation format you would use, the assumptions used here, and an explicit note about why dataset research was not triggered.",
+      "expected_output": "A reviewed notebook that prioritizes validation cells, explains the intended grain, and proves that filters and aggregations are safe.",
+      "expectations": [
+        "Validation section explicitly states there are no joins in this pipeline",
+        "Validation checks required columns and PR-grain duplicates",
+        "Validation checks date filter scope and repo filter behavior",
+        "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+        "Review notes use PT-BR checkpoint language and explain why dataset research was not triggered"
+      ],
+      "files": [
+        "inputs/ai_pr_monitor_itaipu.scala"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala`. Before editing, write `review-notes.md` using the skill's default checkpoint workflow. It must show the exact checkpoint questions, the summary style, and the confirmation format the skill would use before editing. Then produce the final notebook under `outputs/ai_pr_monitor_itaipu_checkpoint_contract.scala`. Treat the following as the confirmed answers after that checkpoint flow: objective is monthly OKR reporting for AI-assisted PRs, the only dataset is `etl.ist__dataset.pull_request_events`, no dataset research is needed, preserve business logic and output table names, but reorganize the notebook to the repository standard. The notebook must be in English.",
+      "expected_output": "A reviewed notebook plus a checkpoint artifact that clearly demonstrates the skill's PT-BR consultation contract and its no-research decision.",
+      "expectations": [
+        "Notebook contains required numbered sections from Imports through Display",
+        "Notebook preserves the expected Delta output table names from the source notebook",
+        "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+        "Checkpoint artifact includes the expected PT-BR confirmation pattern",
+        "Checkpoint artifact contains PT-BR checkpoint prompts",
+        "Checkpoint artifact documents why dataset research was not triggered"
+      ],
+      "files": [
+        "inputs/ai_pr_monitor_itaipu.scala"
+      ]
+    }
+  ]
+}

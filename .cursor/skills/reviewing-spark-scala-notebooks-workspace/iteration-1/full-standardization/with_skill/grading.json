@@ -1,0 +1,59 @@
+{
+  "expectations": [
+    {
+      "text": "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+      "passed": true,
+      "evidence": "Found all README intro markers in notebook intro."
+    },
+    {
+      "text": "Notebook contains required numbered sections from Imports through Display",
+      "passed": true,
+      "evidence": "Found all required numbered sections from 1 through 8."
+    },
+    {
+      "text": "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+      "passed": true,
+      "evidence": "Validation section mentions the no-join case, required columns, and duplicate or PR-grain checks."
+    },
+    {
+      "text": "Notebook preserves the expected Delta output table names from the source notebook",
+      "passed": true,
+      "evidence": "All expected Delta output table names are present."
+    },
+    {
+      "text": "Review notes are in PT-BR and include checkpoint assumptions plus dataset rationale",
+      "passed": true,
+      "evidence": "Review notes include PT-BR checkpoint assumptions and dataset rationale headings."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": 0,
+    "output_chars": 18923,
+    "transcript_chars": 0
+  },
+  "timing": {
+    "executor_duration_seconds": 0.0,
+    "grader_duration_seconds": 0.0,
+    "total_duration_seconds": 0.0
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [
+      "**Custo de execução**: vários `count()` / `collect` implícitos em `head()` nas validações podem ser pesados em produção; avaliar amostragem ou execução só em ambiente de validação.",
+      "**Heurísticas de `estimated_outputs`**: continuam aproximadas (regex, `changed_files - 2`); mudanças no template de descrição podem distorcer séries temporais.",
+      "**Breakdown por autor**: soma de `prs_merged` entre autores não é garantidamente comparável ao total global de PRs (um PR → um autor na agregação, mas sem validação formal de unicidade autor-PR na fonte).",
+      "**Comentário de write**: `ai_monitor_outputs_mensais` permanece **sem** `saveAsTable` ativo, como no notebook de origem — se o OKR depender dessa tabela materializada, é gap operacional conhecido."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  }
+}

@@ -1,0 +1,11 @@
+[
+  "Iteration 1 tied quantitatively, so the benchmark was redesigned for iteration 2 to stress the new skill's actual differentiators: PT-BR checkpoint flow, explicit confirmation format, and documenting why dataset research does or does not trigger.",
+  "The final benchmark now differentiates the skills. The new skill scored 1.00 mean pass rate versus 0.7567 for the old skill, for a delta of +0.24.",
+  "Both skills still perform similarly on structural notebook quality: canonical section order, README-style intro, explicit no-join validation, and preservation of Delta output table names all score well in both configurations.",
+  "The strongest differentiator is the checkpoint contract. The new skill consistently produces PT-BR checkpoint prompts plus the expected confirmation pattern `sim / não / quero corrigir ou complementar`, while the old skill remains English-first by default and therefore drops points on the checkpoint-focused evals.",
+  "This benchmark intentionally scores alignment to the new target contract, not neutral adherence to each skill's own legacy defaults. That is why the old skill is penalized for remaining English-first on checkpoint artifacts.",
+  "The validation-first eval also differentiates the new skill because its review notes explain, in checkpoint style, why dataset research was not triggered when the dataset list was already confirmed. The old skill documents this in a more generic English workflow note.",
+  "The final checkpoint-contract eval is the clearest signal of value: the new skill passes the PT-BR checkpoint-prompt expectations, while the old skill misses the PT-BR-specific assertions even though both can still produce a structurally good notebook.",
+  "A remaining limitation of the benchmark is that it still exercises only the no-research branch of the hybrid dataset workflow. It does not yet benchmark the positive branch where gaps or ambiguity should trigger Slack / Free Willy research and user confirmation.",
+  "Timing, token, and tool-call metrics are still unavailable in this environment because the subagent completions did not expose duration or token payloads here. The benchmark should therefore be read as a structural-and-workflow quality benchmark, not a performance benchmark."
+]

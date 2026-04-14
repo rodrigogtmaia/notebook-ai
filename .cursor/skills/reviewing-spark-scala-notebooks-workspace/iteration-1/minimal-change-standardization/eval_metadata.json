@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "eval_name": "minimal-change-standardization",
+  "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala`. Keep transformations and output table names intact, but reorganize the notebook to the repository standard with Intro, Imports, Data sources, Widgets, Variable filters, Functions, Code / analysis, Validation, and Display. Assume the user wants the smallest set of code changes that still reaches the quality bar. The notebook must be in English. Save the final notebook under `outputs/ai_pr_monitor_itaipu_minimal_change.scala` and save `review-notes.md` with the PT-BR checkpoint assumptions you used.",
+  "assertions": [
+    "Notebook contains required numbered sections from Imports through Display",
+    "Notebook preserves the expected Delta output table names from the source notebook",
+    "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+    "Notebook avoids generic cell names such as teste, apagar, validacao, join test, or cell 1",
+    "Review notes are in PT-BR and explain the minimal-change assumption"
+  ]
+}

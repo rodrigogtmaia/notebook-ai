@@ -1,0 +1,59 @@
+{
+  "expectations": [
+    {
+      "text": "Notebook contains required numbered sections from Imports through Display",
+      "passed": true,
+      "evidence": "Found all required numbered sections from 1 through 8."
+    },
+    {
+      "text": "Notebook preserves the expected Delta output table names from the source notebook",
+      "passed": true,
+      "evidence": "All expected Delta output table names are present."
+    },
+    {
+      "text": "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+      "passed": true,
+      "evidence": "Validation section checks required columns, duplicates/PR grain, and aggregation safety."
+    },
+    {
+      "text": "Notebook avoids generic cell names such as teste, apagar, validacao, join test, or cell 1",
+      "passed": true,
+      "evidence": "No generic or temporary DBTITLE names were found."
+    },
+    {
+      "text": "Review notes are in PT-BR and explain the minimal-change assumption",
+      "passed": true,
+      "evidence": "Review notes explain the minimal-change assumption in PT-BR."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": 0,
+    "output_chars": 18963,
+    "transcript_chars": 0
+  },
+  "timing": {
+    "executor_duration_seconds": 0.0,
+    "grader_duration_seconds": 0.0,
+    "total_duration_seconds": 0.0
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [
+      "**Heurísticas de `estimated_outputs`** continuam aproximadas; mudanças no template de descrição dos PRs alteram o OKR sem falha técnica.",
+      "**`countDistinct(\"pr_number\")`** sem `repo_name` pode distorcer totais se houver colisão de número entre repositórios (comportamento **preservado** de propósito).",
+      "**Custo de execução**: `count()` / agregações na validação disparam jobs extras em relação ao notebook original; aceitável para governança, mas relevante em produção.",
+      "**Reconciliação mensal**: se `monthlyVolume` estiver vazio, `collect()(0)` na célula de reconciliação pode falhar — improvável no uso pretendido, mas depende dos dados."
+    ],
+    "needs_review": [],
+    "workarounds": []
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Validation section explicitly states there are no joins in this pipeline",
+      "passed": true,
+      "evidence": "Validation section explicitly states the pipeline has no joins."
+    },
+    {
+      "text": "Validation checks required columns and PR-grain duplicates",
+      "passed": true,
+      "evidence": "Validation checks required columns and duplicate or PR-grain logic."
+    },
+    {
+      "text": "Validation checks date filter scope and repo filter behavior",
+      "passed": true,
+      "evidence": "Validation checks both date scope and repo filter behavior."
+    },
+    {
+      "text": "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+      "passed": true,
+      "evidence": "Validation includes reconciliation or aggregation-safety language."
+    },
+    {
+      "text": "Review notes use PT-BR checkpoint language and explain why dataset research was not triggered",
+      "passed": true,
+      "evidence": "Review notes use checkpoint-style confirmation language and explain why dataset research was not triggered."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": 0,
+    "output_chars": 22412,
+    "transcript_chars": 0
+  },
+  "timing": {
+    "executor_duration_seconds": 0.0,
+    "grader_duration_seconds": 0.0,
+    "total_duration_seconds": 0.0
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  }
+}

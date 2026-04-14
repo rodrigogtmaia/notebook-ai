@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "skill_name": "reviewing-spark-scala-notebooks",
+    "skill_path": "/Users/rodrigo.maia/Documents/notebook-ai/.cursor/skills/reviewing-spark-scala-notebooks",
+    "executor_model": "fast-subagent",
+    "analyzer_model": "gpt-5.4",
+    "timestamp": "2026-04-14T19:44:44.804789+00:00",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 2,
+      "eval_name": "checkpoint-contract-review",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Notebook contains required numbered sections from Imports through Display",
+          "passed": true,
+          "evidence": "Found all required numbered sections from 1 through 8."
+        },
+        {
+          "text": "Notebook preserves the expected Delta output table names from the source notebook",
+          "passed": true,
+          "evidence": "All expected Delta output table names are present."
+        },
+        {
+          "text": "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+          "passed": true,
+          "evidence": "Validation section checks required columns, duplicates/PR grain, and aggregation safety."
+        },
+        {
+          "text": "Checkpoint artifact includes the expected PT-BR confirmation pattern",
+          "passed": true,
+          "evidence": "Checkpoint artifact includes the expected PT-BR confirmation pattern."
+        },
+        {
+          "text": "Checkpoint artifact contains PT-BR checkpoint prompts",
+          "passed": true,
+          "evidence": "Checkpoint artifact contains PT-BR checkpoint prompts."
+        },
+        {
+          "text": "Checkpoint artifact documents why dataset research was not triggered",
+          "passed": true,
+          "evidence": "Checkpoint artifact documents why dataset research was not triggered."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "checkpoint-contract-review",
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Notebook contains required numbered sections from Imports through Display",
+          "passed": true,
+          "evidence": "Found all required numbered sections from 1 through 8."
+        },
+        {
+          "text": "Notebook preserves the expected Delta output table names from the source notebook",
+          "passed": true,
+          "evidence": "All expected Delta output table names are present."
+        },
+        {
+          "text": "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+          "passed": true,
+          "evidence": "Validation section checks required columns, duplicates/PR grain, and aggregation safety."
+        },
+        {
+          "text": "Checkpoint artifact includes the expected PT-BR confirmation pattern",
+          "passed": false,
+          "evidence": "Checkpoint artifact is missing the PT-BR confirmation pattern `sim / não / quero corrigir ou complementar`."
+        },
+        {
+          "text": "Checkpoint artifact contains PT-BR checkpoint prompts",
+          "passed": false,
+          "evidence": "Checkpoint artifact does not contain the expected PT-BR checkpoint prompts."
+        },
+        {
+          "text": "Checkpoint artifact documents why dataset research was not triggered",
+          "passed": true,
+          "evidence": "Checkpoint artifact documents why dataset research was not triggered."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "full-standardization",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+          "passed": true,
+          "evidence": "Found all README intro markers in notebook intro."
+        },
+        {
+          "text": "Notebook contains required numbered sections from Imports through Display",
+          "passed": true,
+          "evidence": "Found all required numbered sections from 1 through 8."
+        },
+        {
+          "text": "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+          "passed": true,
+          "evidence": "Validation section mentions the no-join case, required columns, and duplicate or PR-grain checks."
+        },
+        {
+          "text": "Notebook preserves the expected Delta output table names from the source notebook",
+          "passed": true,
+          "evidence": "All expected Delta output table names are present."
+        },
+        {
+          "text": "Review notes use PT-BR checkpoint prompts, include the confirmation pattern, and include dataset rationale",
+          "passed": true,
+          "evidence": "Review notes include PT-BR checkpoint prompts, the expected confirmation pattern, and dataset rationale."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "full-standardization",
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+          "passed": true,
+          "evidence": "Found all README intro markers in notebook intro."
+        },
+        {
+          "text": "Notebook contains required numbered sections from Imports through Display",
+          "passed": true,
+          "evidence": "Found all required numbered sections from 1 through 8."
+        },
+        {
+          "text": "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+          "passed": true,
+          "evidence": "Validation section mentions the no-join case, required columns, and duplicate or PR-grain checks."
+        },
+        {
+          "text": "Notebook preserves the expected Delta output table names from the source notebook",
+          "passed": true,
+          "evidence": "All expected Delta output table names are present."
+        },
+        {
+          "text": "Review notes use PT-BR checkpoint prompts, include the confirmation pattern, and include dataset rationale",
+          "passed": false,
+          "evidence": "Review notes are missing one of: PT-BR checkpoint prompts, the expected confirmation pattern, or dataset rationale."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "validation-first-review",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Validation section explicitly states there are no joins in this pipeline",
+          "passed": true,
+          "evidence": "Validation section explicitly states the pipeline has no joins."
+        },
+        {
+          "text": "Validation checks required columns and PR-grain duplicates",
+          "passed": true,
+          "evidence": "Validation checks required columns and duplicate or PR-grain logic."
+        },
+        {
+          "text": "Validation checks date filter scope and repo filter behavior",
+          "passed": true,
+          "evidence": "Validation checks both date scope and repo filter behavior."
+        },
+        {
+          "text": "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+          "passed": true,
+          "evidence": "Validation includes reconciliation or aggregation-safety language."
+        },
+        {
+          "text": "Review notes use PT-BR checkpoint language and explain why dataset research was not triggered",
+          "passed": true,
+          "evidence": "Review notes use checkpoint-style confirmation language and explain why dataset research was not triggered."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "validation-first-review",
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Validation section explicitly states there are no joins in this pipeline",
+          "passed": true,
+          "evidence": "Validation section explicitly states the pipeline has no joins."
+        },
+        {
+          "text": "Validation checks required columns and PR-grain duplicates",
+          "passed": true,
+          "evidence": "Validation checks required columns and duplicate or PR-grain logic."
+        },
+        {
+          "text": "Validation checks date filter scope and repo filter behavior",
+          "passed": true,
+          "evidence": "Validation checks both date scope and repo filter behavior."
+        },
+        {
+          "text": "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+          "passed": true,
+          "evidence": "Validation includes reconciliation or aggregation-safety language."
+        },
+        {
+          "text": "Review notes use PT-BR checkpoint language and explain why dataset research was not triggered",
+          "passed": false,
+          "evidence": "Review notes do not clearly show the confirmation pattern or the no-research rationale."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.7567,
+        "stddev": 0.0,
+        "min": 0.67,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.24",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  }
+}

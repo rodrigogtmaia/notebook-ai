@@ -1,0 +1,12 @@
+{
+  "eval_id": 0,
+  "eval_name": "full-standardization",
+  "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala` and rewrite it into a final notebook saved under `outputs/ai_pr_monitor_itaipu_reviewed.scala`. The business objective is monthly OKR reporting for AI-assisted PRs across `itaipu` and `cross-segment-ai-tools`. The dataset is already confirmed: `etl.ist__dataset.pull_request_events` is the base dataset and there are no additional enrichment datasets. Preserve business logic and output tables. You may reorganize structure and naming for readability. Priority: result reliability plus repository standard. The notebook must be in English. Also save a short `review-notes.md` with the checkpoint assumptions you used in PT-BR.",
+  "assertions": [
+    "Notebook includes README-style intro with Context, Objective, Method, Analysis structure, and Data sources",
+    "Notebook contains required numbered sections from Imports through Display",
+    "Validation section explicitly documents the no-join scenario and validates required columns plus PR-grain duplicates",
+    "Notebook preserves the expected Delta output table names from the source notebook",
+    "Review notes are in PT-BR and include checkpoint assumptions plus dataset rationale"
+  ]
+}

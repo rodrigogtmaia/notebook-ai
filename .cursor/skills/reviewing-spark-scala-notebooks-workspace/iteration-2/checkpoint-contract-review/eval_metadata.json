@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "checkpoint-contract-review",
+  "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala`. Before editing, write `review-notes.md` using the skill's default checkpoint workflow. It must show the exact checkpoint questions, the summary style, and the confirmation format the skill would use before editing. Then produce the final notebook under `outputs/ai_pr_monitor_itaipu_checkpoint_contract.scala`. Treat the following as the confirmed answers after that checkpoint flow: objective is monthly OKR reporting for AI-assisted PRs, the only dataset is `etl.ist__dataset.pull_request_events`, no dataset research is needed, preserve business logic and output table names, but reorganize the notebook to the repository standard. The notebook must be in English.",
+  "assertions": [
+    "Notebook contains required numbered sections from Imports through Display",
+    "Notebook preserves the expected Delta output table names from the source notebook",
+    "Validation section checks required columns, PR-grain duplicates, and aggregation safety",
+    "Checkpoint artifact includes the expected PT-BR confirmation pattern",
+    "Checkpoint artifact contains PT-BR checkpoint prompts",
+    "Checkpoint artifact documents why dataset research was not triggered"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "validation-first-review",
+  "prompt": "Review `inputs/ai_pr_monitor_itaipu.scala` with focus on data correctness risks. Keep the business objective as monthly reporting of AI-assisted PR activity. The dataset list is already confirmed and no research is required. Preserve logic. Explicitly validate duplicate PR counting, required columns, date filter scope, repo filters, and document that there are no joins in this notebook instead of skipping join validation entirely. Save the final notebook under `outputs/ai_pr_monitor_itaipu_validation_first.scala`. Also save `review-notes.md` using the skill's default user-checkpoint language and structure, including the checkpoint questions you would ask before editing, the confirmation format you would use, the assumptions used here, and an explicit note about why dataset research was not triggered.",
+  "assertions": [
+    "Validation section explicitly states there are no joins in this pipeline",
+    "Validation checks required columns and PR-grain duplicates",
+    "Validation checks date filter scope and repo filter behavior",
+    "Validation includes aggregation-safety or reconciliation checks for distinct PR counts",
+    "Review notes use PT-BR checkpoint language and explain why dataset research was not triggered"
+  ]
+}
