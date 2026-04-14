@@ -34,6 +34,7 @@ When this skill runs inside this repository:
 - The notebook itself must be in English
 - Section names, markdown explanations, `DBTITLE` names, and notebook comments should be in English
 - Preserve PT-BR only for stable business terms, table names, official identifiers, or user-provided labels that should not be translated
+- If the notebook contains executable code outside Scala, translate it to Scala in the final notebook.
 
 ## Quick Start
 
@@ -58,6 +59,7 @@ When this skill runs inside this repository:
 - Preserve business logic unless the user explicitly allows semantic changes.
 - The final notebook must be understandable without oral context.
 - The final notebook must keep the required section order unless the user explicitly approves a deviation.
+- The final notebook must not keep mixed-language executable cells when Scala can express the same logic.
 
 Required section order:
 
@@ -196,6 +198,7 @@ Do not consider the notebook final until all of the following are true:
 - duplicates, joins, columns, and grain are validated
 - cell names are meaningful
 - assumptions are explicit
+- no executable code outside Scala remains in the final notebook unless the user explicitly approves an exception
 - the final artifact is ready for `outputs/`
 
 ## Additional Resources
