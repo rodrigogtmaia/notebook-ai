@@ -1,0 +1,51 @@
+Segue um guia direto, em três blocos: boas práticas de código, como organizar um notebook no Databricks e sanity checks úteis.
+
+Boas práticas de código (análise / notebooks)
+Um notebook, uma história — Objetivo claro no topo (o que você mede, para quem, qual decisão). Evita células “lixo” de experimentos antigos no mesmo arquivo de produção.
+Parâmetros no começo — Datas, catalog.schema, caminhos de volume, flags (dry_run, limit_rows) em uma célula só; o resto referencia variáveis.
+Funções em arquivos .py (ou %run) — Lógica repetida ou longa vai para módulo versionado; o notebook fica orquestração + leitura + visualização.
+Idempotência onde der — Escrever em tabela particionada com overwrite na partição certa, ou merge explícito, em vez de “append cego” sem controle.
+Spark: evitar collect() em datasets grandes — Preferir display(), agregações no cluster, amostras com sample() e limites conscientes.
+Comentários no “porquê”, não no “o quê” — O código já diz o que faz; comente regra de negócio, exceção ou armadilha da tabela.
+Nomes explícitos — df_customers_active melhor que df1; colunas com prefixo de domínio quando ajudar (cust_, txn_).
+Como montar um notebook no Databricks (estrutura sugerida)
+Ordem típica que facilita leitura e manutenção:
+SeçãoConteúdo0. Cabeçalho
+Título, autor, data, objetivo, link para doc/dashboard/Slack.
+1. Config
+Widgets / variáveis de ambiente, spark.conf se precisar (ex.: timezone).
+2. Imports e helpers
+%run ou import de lib interna.
+3. Leitura
+Fontes (tabelas, paths), com nomes de variáveis alinhados ao domínio.
+4. Validação leve
+Sanity checks logo após ler (contagens, nulls, ranges) — ver abaixo.
+5. Transformações
+Pipeline em blocos lógicos; uma “grande” transformação por célula ou por função.
+6. Materialização
+saveAsTable, merge, insert overwrite, etc., com comentário do que está sendo atualizado.
+7. Saída
+display(), gráficos, export se houver.
+Detalhes úteis no Databricks
+Use widgets para datas e ambiente (dev/prod) sem editar código.
+Cluster sizing coerente com o job (não usar Interactive gigante “por padrão” em tudo).
+Job notebooks separados de “exploração” — o mesmo raciocínio pode virar job com parâmetros.
+Para dados sensíveis: dynamic views / masking conforme política da empresa (não duplicar PII em notebook público).
+Sanity checks (o que checar sempre)
+Logo após carregar dados
+Contagem de linhas — count() em amostra controlada ou agregação por partição/dia se a tabela for enorme (evitar count full table sem necessidade).
+Período — min/max da coluna de data; bate com o filtro que você acha que aplicou?
+Unicidade — Chaves que deveriam ser únicas: groupBy(...).count().filter("count > 1") ou equivalente.
+Nulls em chaves — Colunas de join e IDs não podem ser null em massa sem você saber.
+Valores impossíveis — Negativos onde só positivo faz sentido; datas futuras onde não deveriam existir; categorias fora do domínio esperado.
+Após joins
+Inflação de linhas — Comparar contagem antes/depois do join (ou contagem por chave); join errado explode linhas.
+Perda inesperada — Left join: quantos null na chave da direita? Inner join: someu muito volume?
+Após agregações
+Soma parcial vs total — Total agregado bate com uma query de referência (ex.: total do mês em uma linha)?
+Dupla contagem — Granularidade correta (um cliente por linha vs uma transação por linha).
+Antes de publicar número
+Arredondamento e timezone — Mesmo fuso e mesma regra de “dia de referência” que o dashboard oficial.
+Reconciliação — Se existir dashboard ou tabela “oficial”, um número de referência (mesmo que aproximado) evita surpresa.
+No seu contexto Nubank, o skill de análise reforça coisas que viram sanity checks de negócio: geografia padrão BR, segmento PF, e mesmas tabelas do QuickSight quando o objetivo é bater com um dashboard — isso evita divergência “correta no SQL, errada no negócio”.
+Se quiser, no próximo passo posso esboçar um template de células (markdown + Python) já com seções e um bloco mínimo de asserts em Spark para você colar no Databricks.
